@@ -1,0 +1,4 @@
+testfile1.test: line 1: testfile: command not found
+testfile1.test: line 2: some: command not found
+testfile1.test: line 3: some: command not found
+testfile1.test: line 4: this: command not found
