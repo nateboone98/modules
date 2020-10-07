@@ -44,15 +44,18 @@ car_t *lget() {
     return NULL;
   }
 	
-  car_t *p1 = (car_t*)malloc(sizeof(front));
-  car_t *pn = (car_t*)malloc(sizeof(front));
+  car_t *p1;
+  car_t *pn;
   p1 = front;
   pn = front->next;
-  free(front);
   front = pn;
+  p1->next = NULL;
   return p1;
 }
 
+
+
+/* apply a function to every car in the list */
 void lapply(void (*fn)(car_t *cp)) {
     car_t *cp;
     if (front==NULL) {
@@ -72,9 +75,8 @@ car_t *lremove(char *platep){
   
   car_t *temp,*p,*f;//temp is the car we remove and return, p is used to keep track of the current car, and f is used to keep track of the previous car
   
-  
   for (p = front; p!= NULL; p = p -> next){
-        
+    
     if (strcmp(platep, p->plate ) == 0){//if the plates match
       
       if(p != front){//if we are not at the front then set the previous pointer to skip over the current pointer
@@ -89,11 +91,11 @@ car_t *lremove(char *platep){
       temp -> next = NULL;
       return (temp);
     }
-	
+		
     f = p;
-    
   }
   
   printf("There are no cars with the license plate %s\n", platep);
   return (NULL);
 }
+

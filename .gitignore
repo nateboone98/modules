@@ -2,6 +2,7 @@
 #Object Files and libraries
 *.o
 *.a
+FreedomCoders
 
 # Emacs Save Files
 *~
